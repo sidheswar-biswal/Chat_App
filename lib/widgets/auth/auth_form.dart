@@ -29,7 +29,7 @@ class _AuthFormState extends State<AuthForm> {
   var _userEmail = '';
   var _userName = '';
   var _userPassword = '';
-  dynamic _userImageFile;
+  File _userImageFile = File('assets/user.png');
 
 
   void _pickedImage(File image) {
@@ -40,7 +40,7 @@ class _AuthFormState extends State<AuthForm> {
     final isValid = _formKey.currentState!.validate();
     FocusScope.of(context).unfocus();
 
-    if (_userImageFile == null && !_isLogin) {
+    if (_userImageFile == File('assets/user.png') && !_isLogin) {
       Scaffold.of(context).showSnackBar(
         SnackBar(
           content: Text('Please pick an image.'),
